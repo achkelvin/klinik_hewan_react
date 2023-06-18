@@ -6,7 +6,7 @@ function NavbarComponent() {
   React.useEffect(() => {
     const path = window.location.pathname;
     if (path === '/') {
-      document.getElementById('home').classList.add('active');
+      document.getElementById('dashboard').classList.add('active');
     } else if (path === '/organization') {
       document.getElementById('organization').classList.add('active');
     } else if (path === '/program') {
@@ -43,13 +43,20 @@ function NavbarComponent() {
           style={{ marginBottom: '2%' }}
         />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav fill className="col" defaultActiveKey="/home">
+          <Nav fill className="col" defaultActiveKey="/">
             <Nav.Link
               className="hover-underline-animation text-white pb-3 pt-3"
               href="/"
-              id="home"
+              id="dashboard"
             >
-              Home
+              Dashboard
+            </Nav.Link>
+            <Nav.Link
+              className="hover-underline-animation text-white pb-3 pt-3"
+              href="/dokter-hewan"
+              id="dokter-hewan"
+            >
+              Dokter Hewan
             </Nav.Link>
             <Nav.Link
               className="hover-underline-animation text-white pb-3 pt-3"

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../layout/layout';
 import { fetchDokterHewan } from '../reducers/dokterHewanReducer';
 
-function DokterHewan() {
+function Dashboard() {
   const { dokterHewan } = useSelector((state) => state.dokterHewan);
   const dispatch = useDispatch();
 
@@ -21,4 +21,4 @@ function DokterHewan() {
   );
 }
 
-export default DokterHewan;
+export default Dashboard;

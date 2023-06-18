@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { directus } from '../configs/url';
 
-export const fetchPemilikHewan = createAsyncThunk(
-  'pemilikHewan/fetchPemilikHewan',
+export const fetchRawatInap = createAsyncThunk(
+  'rawatInap/fetchRawatInap',
   async () => {
-    const response = await directus.items('pemilik_hewan').readByQuery({
+    const response = await directus.items('rawat_inap').readByQuery({
       fields: ['*.*'],
     });
     return response.data;

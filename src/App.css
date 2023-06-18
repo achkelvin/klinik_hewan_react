@@ -1,15 +1,18 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import "bootstrap/dist/css/bootstrap.css";
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Kumbh+Sans:wght@400;700&display=swap");
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  overflow-x: hidden;
 }
 
-
-.card {
-  padding: 2em;
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
 }
 
-.read-the-docs {
-  color: #888;
+.inputFile:hover {
+  cursor: pointer
 }
