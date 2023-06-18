@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchResep } from '../actions/resepAction';
+import { fetchResep } from '../reducers/resepReducer';
 
 const initialState = {
   resep: [],

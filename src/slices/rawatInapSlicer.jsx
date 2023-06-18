@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchRawatInap } from '../actions/rawatInapAction';
+import { fetchRawatInap } from '../reducers/rawatInapReducer';
 
 const initialState = {
   rawatInap: [],

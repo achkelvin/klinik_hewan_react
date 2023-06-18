@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchRawatJalan } from '../actions/rawatJalanAction';
+import { fetchRawatJalan } from '../reducers/rawatJalanReducer';
 
 const initialState = {
   rawatJalan: [],

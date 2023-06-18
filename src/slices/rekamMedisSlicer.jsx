@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchRekamMedis } from '../actions/rekamMedisAction';
+import { fetchRekamMedis } from '../reducers/rekamMedisReducer';
 
 const initialState = {
   rekamMedis: [],

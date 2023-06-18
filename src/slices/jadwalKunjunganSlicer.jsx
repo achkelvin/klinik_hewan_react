@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchJadwalKunjungan } from '../actions/jadwalKunjunganAction';
+import { fetchJadwalKunjungan } from '../reducers/jadwalKunjunganReducer';
 
 const initialState = {
   jadwalKunjungan: [],
