@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import authSlicer from '../slices/authSlicer';
 import dokterHewanSlicer from '../slices/dokterHewanSlicer';
 import jadwalKunjunganSlicer from '../slices/jadwalKunjunganSlicer';
 import obatSlicer from '../slices/obatSlicer';
@@ -12,6 +13,7 @@ import stokObatReducer from '../slices/stokObatReducer';
 
 export const store = configureStore({
   reducer: {
+    auth: authSlicer,
     dokterHewan: dokterHewanSlicer,
     jadwalKunjungan: jadwalKunjunganSlicer,
     obat: obatSlicer,

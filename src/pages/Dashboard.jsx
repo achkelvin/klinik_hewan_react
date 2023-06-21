@@ -1,24 +1,21 @@
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../reducers/authReducer';
 import Layout from '../layout/layout';
-import { fetchDokterHewan } from '../reducers/dokterHewanReducer';
 
-function Dashboard() {
-  const { dokterHewan } = useSelector((state) => state.dokterHewan);
+const Dashboard = () => {
+  const user = useSelector((state) => state.auth.user);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchDokterHewan());
-  }, [dispatch]);
-  console.log(dokterHewan);
-  const nomorTelepon =
-    dokterHewan.length > 0 ? dokterHewan[0].nomor_telepon : '';
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   return (
     <Layout>
-      <h1>{nomorTelepon}</h1>
+      <h2>Welcome, {user?.name}</h2>
+      <button onClick={handleLogout}>Logout</button>
     </Layout>
   );
-}
+};
 
 export default Dashboard;
