@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import { Navbar, Nav } from 'react-bootstrap';
+import logo from '../assets/images/logo.png';
 
 function NavbarComponent() {
   React.useEffect(() => {
@@ -44,6 +45,16 @@ function NavbarComponent() {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav fill className="col" defaultActiveKey="/">
+            <Navbar.Brand href="/">
+              <img
+                alt=""
+                src={logo}
+                width="50"
+                height="30"
+                className="d-inline-block align-top"
+              />{' '}
+              |Klinik Hewan
+            </Navbar.Brand>
             <Nav.Link
               className="hover-underline-animation text-white pb-3 pt-3"
               href="/"

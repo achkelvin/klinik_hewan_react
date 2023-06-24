@@ -11,12 +11,17 @@ function DokterHewan() {
     dispatch(fetchDokterHewan());
   }, [dispatch]);
   console.log(dokterHewan);
-  const nomorTelepon =
-    dokterHewan.length > 0 ? dokterHewan[0].nomor_telepon : '';
+  // const nomorTelepon =
+  //   dokterHewan.length > 0 ? dokterHewan[0].nomor_telepon : '';
 
   return (
     <Layout>
-      <h1>{nomorTelepon}</h1>
+      {dokterHewan.map((dokter) => (
+        <div key={dokter.id}>
+          <h1>{dokter.nama}</h1>
+          <h1>{dokter.nomor_telepon}</h1>
+        </div>
+      ))}
     </Layout>
   );
 }
