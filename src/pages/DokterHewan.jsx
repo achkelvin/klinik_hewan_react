@@ -2,6 +2,9 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../layout/layout';
 import { fetchDokterHewan } from '../reducers/dokterHewanReducer';
+import Card from 'react-bootstrap/Card';
+import { Col, Row } from 'react-bootstrap';
+import { getAsset } from '../configs/getAsset';
 
 function DokterHewan() {
   const { dokterHewan } = useSelector((state) => state.dokterHewan);
@@ -10,18 +13,33 @@ function DokterHewan() {
   useEffect(() => {
     dispatch(fetchDokterHewan());
   }, [dispatch]);
-  console.log(dokterHewan);
+  // console.log(dokterHewan);
+  // console.log(dokterHewan?.foto?.id);
+  // console.log(dokterHewan.nama_dokter);
   // const nomorTelepon =
   //   dokterHewan.length > 0 ? dokterHewan[0].nomor_telepon : '';
 
   return (
     <Layout>
-      {dokterHewan.map((dokter) => (
-        <div key={dokter.id}>
-          <h1>{dokter.nama}</h1>
-          <h1>{dokter.nomor_telepon}</h1>
-        </div>
-      ))}
+      <Row className="d-flex justify-content-center align-items-center">
+        {dokterHewan.map((dokter) => (
+          <Col key={dokter.id} md={4}>
+            <Card className="m-4 p-2">
+              <Card.Img
+                variant="top"
+                src={getAsset(dokter?.foto?.id)}
+                width={100}
+                height={450}
+              />
+              <Card.Body>
+                <Card.Title>{dokter.nama_dokter}</Card.Title>
+                <Card.Text sx={{ mb: 1.5 }}>{dokter.spesialisasi}</Card.Text>
+                <Card.Text>{dokter.nomor_telepon}</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
     </Layout>
   );
 }
