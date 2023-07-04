@@ -1,27 +1,46 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../layout/layout';
-import { fetchPasienHewan } from '../reducers/pasienHewanReducer';
+import Table from '../components/Table';
+import { fetchObat } from '../reducers/obatReducer';
 
-function PasienHewan() {
-  const { pasienHewan } = useSelector((state) => state.pasienHewan);
+function Obat() {
+  const { obat } = useSelector((state) => state.obat);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPasienHewan());
+    dispatch(fetchObat());
   }, [dispatch]);
-  console.log(pasienHewan);
+  console.table(obat);
+
+  const tableColumns = [
+    { id: 'nama_obat', label: 'Nama Obat', width: '10%' },
+    { id: 'dosis', label: 'Dosis', width: '10%' },
+    { id: 'kategori', label: 'Kategori', width: '10%' },
+    { id: 'indikasi', label: 'Indikasi', width: '10%' },
+    { id: 'kontraindikasi', label: 'Kontraindikasi', width: '10%' },
+    { id: 'efek_samping', label: 'Efek Samping', width: '10%' },
+    { id: 'komposisi', label: 'Komposisi', width: '10%' },
+    { id: 'deskripsi', label: 'Deskripsi', width: '10%' },
+  ];
+
+  const obatData = obat.map((obat) => ({
+    id: obat.id,
+    nama_obat: obat.nama_obat,
+    dosis: obat.dosis,
+    kategori: obat.kategori,
+    indikasi: obat.indikasi,
+    kontraindikasi: obat.kontraindikasi,
+    efek_samping: obat.efek_samping,
+    komposisi: obat.komposisi,
+    deskripsi: obat.deskripsi,
+  }));
+
   return (
     <Layout>
-      <ul>
-        {pasienHewan.map((pasien) => (
-          <li key={pasien.id}>
-            <p>{pasien.nama_pasien}</p>
-          </li>
-        ))}
-      </ul>
+      <Table columns={tableColumns} data={obatData} />
     </Layout>
   );
 }
 
-export default PasienHewan;
+export default Obat;

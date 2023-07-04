@@ -53,7 +53,7 @@ function NavbarComponent() {
                 height="30"
                 className="d-inline-block align-top"
               />{' '}
-              |Klinik Hewan
+              Klinik Hewan
             </Navbar.Brand>
             <Nav.Link
               className="hover-underline-animation text-white pb-3 pt-3"
@@ -82,6 +82,13 @@ function NavbarComponent() {
               id="jadwal-kunjungan"
             >
               Jadwal Kunjungan
+            </Nav.Link>
+            <Nav.Link
+              className="hover-underline-animation text-white pb-3 pt-3"
+              href="/obat"
+              id="obat"
+            >
+              Obat
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

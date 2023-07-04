@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../layout/layout';
 import Table from '../components/Table';
 import { fetchPasienHewan } from '../reducers/pasienHewanReducer';
-import PropTypes from 'prop-types';
+import PemilikHewan from './PemilikHewan';
+import RekamMedis from './RekamMedis';
 
 function PasienHewan() {
   const { pasienHewan } = useSelector((state) => state.pasienHewan);
@@ -24,18 +25,10 @@ function PasienHewan() {
   return (
     <Layout>
       <Table columns={tableColumns} data={pasienHewan} />
+      <PemilikHewan />
+      <RekamMedis />
     </Layout>
   );
 }
-// Add prop validation for tableColumns (optional but recommended)
-PasienHewan.propTypes = {
-  tableColumns: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired,
-      width: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
 
 export default PasienHewan;

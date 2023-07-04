@@ -6,6 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import TableSortLabel from '@mui/material/TableSortLabel';
 import PropTypes from 'prop-types';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -28,7 +29,13 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const CustomTable = ({ columns, data }) => {
+const CustomTable = ({ columns, data, sortColumn, sortDirection, onSort }) => {
+  const handleSort = (columnId) => {
+    if (onSort) {
+      onSort(columnId);
+    }
+  };
+
   return (
     <TableContainer
       className="p-4 d-flex justify-content-center align-items-center"
@@ -39,11 +46,21 @@ const CustomTable = ({ columns, data }) => {
           <TableRow>
             {columns.map((column) => (
               <StyledTableCell
-                key={column.id}
                 align="center"
-                style={{ width: column.width }}
+                key={column.id}
+                width={column.width}
               >
-                {column.label}
+                {column.sortable ? (
+                  <TableSortLabel
+                    active={sortColumn === column.id}
+                    direction={sortDirection}
+                    onClick={() => handleSort(column.id)}
+                  >
+                    {column.label}
+                  </TableSortLabel>
+                ) : (
+                  column.label
+                )}
               </StyledTableCell>
             ))}
           </TableRow>
@@ -82,6 +99,9 @@ CustomTable.propTypes = {
       // Add more prop types for each property in the data object if necessary
     })
   ).isRequired,
+  sortColumn: PropTypes.string,
+  sortDirection: PropTypes.oneOf(['asc', 'desc']),
+  onSort: PropTypes.func,
 };
 
 export default CustomTable;

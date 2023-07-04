@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../layout/layout';
 import Table from '../components/Table';
 import { fetchJadwalKunjungan } from '../reducers/jadwalKunjunganReducer';
+import RawatInap from './RawatInap';
+import RawatJalan from './RawatJalan';
 
 function JadwalKunjungan() {
   const { jadwalKunjungan } = useSelector((state) => state.jadwalKunjungan);
@@ -11,7 +13,7 @@ function JadwalKunjungan() {
   useEffect(() => {
     dispatch(fetchJadwalKunjungan());
   }, [dispatch]);
-  console.log(jadwalKunjungan);
+  console.table(jadwalKunjungan);
 
   const tableColumns = [
     { id: 'nama_pasien', label: 'Nama', width: '20%' },
@@ -31,6 +33,8 @@ function JadwalKunjungan() {
   return (
     <Layout>
       <Table columns={tableColumns} data={jadwalKunjunganData} />
+      <RawatInap />
+      <RawatJalan />
     </Layout>
   );
 }
