@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../layout/layout';
 import Table from '../components/Table';
 import { fetchObat } from '../reducers/obatReducer';
+import StokObat from './StokObat';
+import Resep from './Resep';
 
 function Obat() {
   const { obat } = useSelector((state) => state.obat);
@@ -39,6 +41,8 @@ function Obat() {
   return (
     <Layout>
       <Table columns={tableColumns} data={obatData} />
+      <StokObat />
+      <Resep />
     </Layout>
   );
 }
