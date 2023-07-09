@@ -5,6 +5,7 @@ import { fetchDokterHewan } from '../reducers/dokterHewanReducer';
 import Card from 'react-bootstrap/Card';
 import { Col, Row } from 'react-bootstrap';
 import { getAsset } from '../configs/getAsset';
+import Typography from '@mui/material/Typography';
 
 function DokterHewan() {
   const { dokterHewan } = useSelector((state) => state.dokterHewan);
@@ -22,6 +23,13 @@ function DokterHewan() {
   return (
     <Layout>
       <Row className="d-flex justify-content-center align-items-center">
+        <Typography
+          className="d-flex justify-content-center align-items-center"
+          variant="h4"
+          sx={{ m: 2 }}
+        >
+          Dokter Hewan
+        </Typography>
         {dokterHewan.map((dokter) => (
           <Col key={dokter.id} md={4}>
             <Card className="m-4 p-2">

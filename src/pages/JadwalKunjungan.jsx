@@ -5,6 +5,7 @@ import Table from '../components/Table';
 import { fetchJadwalKunjungan } from '../reducers/jadwalKunjunganReducer';
 import RawatInap from './RawatInap';
 import RawatJalan from './RawatJalan';
+import Typography from '@mui/material/Typography';
 
 function JadwalKunjungan() {
   const { jadwalKunjungan } = useSelector((state) => state.jadwalKunjungan);
@@ -32,8 +33,29 @@ function JadwalKunjungan() {
 
   return (
     <Layout>
+      <Typography
+        className="d-flex justify-content-center align-items-center"
+        variant="h4"
+        sx={{ m: 2 }}
+      >
+        Jadwal Kunjungan
+      </Typography>
       <Table columns={tableColumns} data={jadwalKunjunganData} />
+      <Typography
+        className="d-flex justify-content-center align-items-center"
+        variant="h4"
+        sx={{ m: 2 }}
+      >
+        Rawat Inap
+      </Typography>
       <RawatInap />
+      <Typography
+        className="d-flex justify-content-center align-items-center"
+        variant="h4"
+        sx={{ m: 2 }}
+      >
+        Rawat Jalan
+      </Typography>
       <RawatJalan />
     </Layout>
   );

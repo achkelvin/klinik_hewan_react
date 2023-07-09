@@ -5,6 +5,7 @@ import Table from '../components/Table';
 import { fetchObat } from '../reducers/obatReducer';
 import StokObat from './StokObat';
 import Resep from './Resep';
+import Typography from '@mui/material/Typography';
 
 function Obat() {
   const { obat } = useSelector((state) => state.obat);
@@ -40,8 +41,29 @@ function Obat() {
 
   return (
     <Layout>
+      <Typography
+        className="d-flex justify-content-center align-items-center"
+        variant="h4"
+        sx={{ m: 2 }}
+      >
+        Obat
+      </Typography>
       <Table columns={tableColumns} data={obatData} />
+      <Typography
+        className="d-flex justify-content-center align-items-center"
+        variant="h4"
+        sx={{ m: 2 }}
+      >
+        Stok Obat
+      </Typography>
       <StokObat />
+      <Typography
+        className="d-flex justify-content-center align-items-center"
+        variant="h4"
+        sx={{ m: 2 }}
+      >
+        Resep
+      </Typography>
       <Resep />
     </Layout>
   );
